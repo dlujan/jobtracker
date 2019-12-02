@@ -24,6 +24,9 @@ $ npm i
 $ npm start
 ```
 
+## electron-store
+Starting the application will create a folder in Library/Application Support named 'joblister'. The data is persisted to two JSON files; Jobs Main.json and Jobs Trash.json.
+
 ## Packaging the app
 1. `npm run build`
 2. `npm run pack`
