@@ -14,7 +14,7 @@ A clean and simple desktop app made with React and Electron that lets you easily
 Clone the repo:
 
 ```bash
-git clone --depth=1 https://github.com/dlujan/jobtracker.git
+git clone https://github.com/dlujan/jobtracker.git
 ```
 
 Then install dependencies and run the project
