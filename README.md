@@ -1,7 +1,7 @@
 
-# electron-create-react-app-boilerplate
+# Job Tracker
 
-A simple electron app boilerplate powered by create-react-app.
+A clean and simple desktop app made with React and Electron that lets you easily manage your jobs and income.
 
 ![screenshot_1](https://imgur.com/aJAGmfE.jpg)
 
