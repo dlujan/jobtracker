@@ -12,7 +12,7 @@ A clean and simple desktop app made with React and Electron that lets you easily
 Clone the repo:
 
 ```bash
-git clone --depth=1 https://github.com/ztoben/electron-create-react-app-boilerplate.git your-project-name
+git clone --depth=1 https://github.com/dlujan/jobtracker.git
 ```
 
 Then install dependencies and run the project
