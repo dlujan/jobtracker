@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', 'sans serif';
+}
+
+.flex-container {
+    display: flex;
+    align-items: stretch;
+    margin: 0;
+    height: 100vh;
+}
+
+.menubar-container {
+    background: #32323a;
+    color: black;
+    width: 15%;
+    min-height: 100vh;
+}
+
+.main-container {
+    background: #f7f7f7;
+    width: 85%;
+    flex: 1;
+    overflow-y: scroll;
+}

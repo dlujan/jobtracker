@@ -1,0 +1,227 @@
+
+/* MenuBar Styles */
+.menu-bar {
+    list-style-type: none;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.link-comp {
+    text-decoration: none;
+    color: #f5f5f5;
+}
+
+.link-comp div {
+    padding: 12px;
+}
+
+.link-comp div:hover {
+    background: #1d1d22;
+}
+
+/* Dashboard and Job Lister */
+.header {
+    padding-left: 10px;
+    padding-bottom: 3px;
+}
+
+h1 {
+    margin: 0 0 10px 0;
+    padding-top: 20px;
+}
+
+h2 {
+   margin: 0;
+}
+
+/* Dashboard Styles */
+.page-container-dash {
+    height: 100%;
+    overflow: hidden;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 75px 0;
+    width: 100%;
+}
+
+.card {
+    display: flex;
+    width: 33%;
+    margin: 0 20px;
+    box-shadow: 0 1px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.card:hover {
+    margin-top: -1px;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon-income {
+    padding: 6px 22px;
+    font-size: 2.5rem;
+    color: white;
+    background: rgb(91, 185, 83);
+}
+
+.card-icon-count {
+    padding: 8px 10px;
+    font-size: 2.5rem;
+    color: white;
+    background: rgb(83, 160, 223);
+}
+
+.card-content {
+    margin-left: 10px;
+}
+
+/* JobLister Styles (wholepage) */
+.add-filter-container {
+    display: flex;
+}
+
+/* AddJob Styles */
+.add-job-container {
+    display: flex;
+    width: 50%;
+    padding: 4px 0;
+    /* background: rgb(91, 185, 83); */
+    background: rgb(184, 39, 39);
+}
+
+.add-job-cell:nth-of-type(1) {
+    width: 33%;
+}
+
+.add-job-cell:nth-of-type(2) {
+    width: 66%;
+}
+
+.add-job-cell h3 {
+    margin: 0;
+}
+
+.add-job-form {
+    background: #f7f7f7;
+    padding: 6px 8px;
+    margin: 5px 8px 5px 0;
+    border-radius: 3px;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.add-job-container input {
+    border: none;
+    margin: 1px;
+    padding: 3px;
+    border-bottom: solid rgb(88, 83, 83) 2px;
+    background: #f7f7f7;
+}
+
+.add-job-container input:focus {
+    outline: none;
+    border-bottom: solid #32323a 2px;
+}
+
+.submit-btn {
+    margin-top: 3px;
+}
+
+/* ListFilter Styles */
+.list-filter-container {
+    display: flex;
+    width: 50%;
+    padding: 4px 0;
+    /* background: rgb(83, 160, 223); */
+    background: rgb(184, 39, 39);
+}
+
+.list-filter-cell:nth-of-type(1) {
+    width: 33%;
+}
+
+.list-filter-cell:nth-of-type(2) {
+    width: 66%;
+}
+
+.list-filter-form {
+    background: #f7f7f7;
+    padding: 6px 8px;
+    margin: 5px 8px 5px 0;
+    border-radius: 3px;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.list-filter-cell h3 {
+    margin: 0;
+}
+
+.list-filter-cell span {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-left: 15px;
+    color: black;
+}
+
+.list-filter-container input {
+    border: none;
+    margin: 1px;
+    padding: 3px;
+    border-bottom: solid rgb(88, 83, 83) 2px;
+    background: #f7f7f7;
+}
+
+.list-filter-container input:focus {
+    outline: none;
+    border-bottom: solid #32323a 2px;
+}
+
+/* JobItem Styles */
+.label-bar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 1rem;
+    background: white;
+    font-weight: 700;
+}
+
+.job-item {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 1rem;
+    background: #f4f4f4;
+}
+
+.job-item:nth-child(2n+1) {
+    background: white;
+}
+
+.trash-job-item {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 1rem;
+    background: white;
+}
+
+.trash-job-item:nth-child(2n+1) {
+    background: #f4f4f4;
+}
+
+.action-box {
+    display: flex;
+    color: rgb(88, 82, 82);
+}
+
+.action-item {
+    padding: 6px 10px;
+    border: solid rgb(212, 212, 212) 1px;
+    cursor: pointer;
+}
+
+.action-item:hover {
+    color: black;
+}
+
+
