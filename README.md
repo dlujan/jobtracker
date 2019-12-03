@@ -32,8 +32,6 @@ Starting the application will create a folder in Library/Application Support nam
 2. `npm run pack`
 3. `npm run dist`
 
-To add a custom icon, after running 'build', put your icon inside the 'build' directory with the name 'icon'.
-
 Your app will packaged as an .exe in the dist folder using the [electron-builder](https://github.com/electron-userland/electron-builder) package. Edit the build section of the package.json to build on additional platforms.
 
 ## Resources
