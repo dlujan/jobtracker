@@ -3,9 +3,9 @@
 
 A clean and simple desktop app made with React and Electron that lets you easily manage your jobs and income.
 
-![screenshot_1](https://github.com/dlujan/jobtracker/blob/master/dashboard.png)
-![screenshot_2](https://github.com/dlujan/jobtracker/blob/master/joblister.png)
-![screenshot_3](https://github.com/dlujan/jobtracker/blob/master/trash.png)
+![](gif1.gif)
+![](gif2.gif)
+![](gif3.gif)
 
 ## Requirements
  * Node >= 8.2.0
