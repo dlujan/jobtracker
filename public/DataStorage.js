@@ -26,13 +26,11 @@ class DataStorage extends Store {
         // param passed in will be ex. [{dateYear: 2019}] or [{dateMonth: 9}] or [{dateMonth: 9, dateYear: 2019}] OR [{dateMonth: 9, dateYear: 2019}, {etc.}, {etc.}]
         let total = 0.00;
 
-        timeRanges.forEach(range => { // loops through all objects passed as params
-            this.jobs.forEach(job => { // loops through all jobs!
-                Object.keys(range).every(k => {
-                    if (job[k] === range[k]) {
-                        total = total + parseFloat(job.pay);
-                    }
-                });
+        timeRanges.forEach(range => {
+            this.jobs.forEach(job => {
+                if (Object.keys(range).every(k => range[k] === job[k])) {
+                    total = total + parseFloat(job.pay);
+                }
             });
         });
         return total;
@@ -43,11 +41,9 @@ class DataStorage extends Store {
 
         timeRange.forEach(range => {
             this.jobs.forEach(job => {
-                Object.keys(range).every(k => {
-                    if (job[k] === range[k]) {
-                        total = total + 1;
-                    }
-                });
+                if (Object.keys(range).every(k => range[k] === job[k])) {
+                    total = total + 1;
+                }
             });
         });
         return total;
