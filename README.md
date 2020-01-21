@@ -1,7 +1,7 @@
 
 # Job Tracker
 
-A clean and simple desktop app made with React and Electron that lets you easily manage your jobs and income.
+A clean and simple desktop app made with React and Electron that lets you easily keep track of your jobs and income.
 
 ![](gif1.gif)
 ![](gif2.gif)
