@@ -110,6 +110,7 @@ const jobsData = new DataStorage({
   // IMPORTANT! App will NEVER return all the jobs, only the filtered jobs.
   ipcMain.on('filter-jobs', (event, filterSpecs) => {
     jobsData.getJobs(filterSpecs);
+    console.log(filterSpecs);
     mainWindow.send('list-jobs', jobsData.filteredJobs);
   })
   

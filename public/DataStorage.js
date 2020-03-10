@@ -13,7 +13,7 @@ class DataStorage extends Store {
         return this;
     }
 
-    getJobs (filterSpecs) {
+    getJobs (filterSpecs) { // filterSpecs is one object
         this.filteredJobs = this.jobs.filter(job => {
             return Object.keys(filterSpecs).every(k => {
                 return job[k] === filterSpecs[k];
@@ -26,28 +26,24 @@ class DataStorage extends Store {
         // param passed in will be ex. [{dateYear: 2019}] or [{dateMonth: 9}] or [{dateMonth: 9, dateYear: 2019}] OR [{dateMonth: 9, dateYear: 2019}, {etc.}, {etc.}]
         let total = 0.00;
 
-        timeRanges.forEach(range => { // loops through all objects passed as params
-            this.jobs.forEach(job => { // loops through all jobs!
-                Object.keys(range).every(k => {
-                    if (job[k] === range[k]) {
-                        total = total + parseFloat(job.pay);
-                    }
-                });
+        timeRanges.forEach(range => {
+            this.jobs.forEach(job => {
+                if (Object.keys(range).every(k => range[k] === job[k])) {
+                    total = total + parseFloat(job.pay);
+                }
             });
         });
         return total;
     }
-
+    // THE ISSUE: Method is ONLY counting the first key/value pair in each object
     countJobs (timeRange) {
         let total = 0;
 
         timeRange.forEach(range => {
             this.jobs.forEach(job => {
-                Object.keys(range).every(k => {
-                    if (job[k] === range[k]) {
-                        total = total + 1;
-                    }
-                });
+                if (Object.keys(range).every(k => range[k] === job[k])) {
+                    total = total + 1;
+                }
             });
         });
         return total;
@@ -77,11 +73,6 @@ class DataStorage extends Store {
 
     queryJobByID (id) {
         return this.jobs.find(job => job.id === id);
-    }
-
-    recoverJob(job) {
-        console.log(job);
-        // add recovered job to the end of the job array?
     }
 }
 
