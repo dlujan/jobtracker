@@ -44,6 +44,15 @@ const jobsData = new DataStorage({
   const jobsTrash = new DataStorage({
     name: 'Jobs Trash'
   })
+
+  function getWeek (num) { // argument is a number between 1 and 52
+    let arr = [];
+    let date = new Date();
+
+
+    // returns arr of objects with day, month, and year
+    
+  }
   
   function currentWeek () {
     // Includes this week's Monday through current day

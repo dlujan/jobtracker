@@ -1,9 +1,11 @@
 
-# electron-create-react-app-boilerplate
+# Job Tracker
 
-A simple electron app boilerplate powered by create-react-app.
+A clean and simple desktop app made with React and Electron that lets you easily keep track of your jobs and income.
 
-![screenshot_1](https://imgur.com/aJAGmfE.jpg)
+![](gif1.gif)
+![](gif2.gif)
+![](gif3.gif)
 
 ## Requirements
  * Node >= 8.2.0
@@ -12,16 +14,18 @@ A simple electron app boilerplate powered by create-react-app.
 Clone the repo:
 
 ```bash
-git clone --depth=1 https://github.com/ztoben/electron-create-react-app-boilerplate.git your-project-name
+git clone https://github.com/dlujan/jobtracker.git
 ```
 
 Then install dependencies and run the project
 
 ```bash
-$ cd your-project-name
 $ npm i
 $ npm start
 ```
+
+## electron-store
+Starting the application will create a folder in Library/Application Support named 'joblister'. The data is persisted to two JSON files; Jobs Main.json and Jobs Trash.json.
 
 ## Packaging the app
 1. `npm run build`
