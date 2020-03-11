@@ -17,7 +17,8 @@ class App extends React.Component {
         dateDay: undefined,
         dateMonth: undefined,
         dateYear: undefined,
-        customer: undefined, // These have to be undefined for when they send to main.js
+        dateWeek: undefined,
+        customer: undefined, // These have to be undefined for when they send to electron.js
         source: undefined, // in case not all are specified.
         pay: undefined
       },
@@ -25,6 +26,7 @@ class App extends React.Component {
         dateDay: '',
         dateMonth: '',
         dateYear: '',
+        dateWeek: '',
         customer: '', // these can't be undefined bc it messes up controlled vs uncontrolled input
         source: '', // so I have to have both ^ :/
         pay: ''
@@ -129,6 +131,7 @@ class App extends React.Component {
         dateDay: undefined,
         dateMonth: undefined,
         dateYear: undefined,
+        dateWeek: undefined,
         customer: undefined,
         source: undefined,
         pay: undefined
@@ -137,6 +140,7 @@ class App extends React.Component {
         dateDay: '',
         dateMonth: '',
         dateYear: '',
+        dateWeek: '',
         customer: '',
         source: '',
         pay: ''

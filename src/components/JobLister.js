@@ -6,6 +6,7 @@ import './Components.css';
 
 class JobLister extends React.Component {
     componentDidUpdate(prevProps) {
+        // Scroll to bottom of page on new job creation
         if (this.props.jobs.length !== prevProps.jobs.length) {
             const bottom = document.getElementById('bottom');
             bottom.scrollIntoView({behavior: 'smooth'});

@@ -13,13 +13,24 @@ class DataStorage extends Store {
         return this;
     }
 
-    getJobs (filterSpecs) { // filterSpecs is one object
-        this.filteredJobs = this.jobs.filter(job => {
-            return Object.keys(filterSpecs).every(k => {
-                return job[k] === filterSpecs[k];
+    getJobs (filterSpecs) { // only accepts one object
+        // this.filteredJobs = this.jobs.filter(job => {
+        //     return Object.keys(filterSpecs).every(k => {
+        //         return job[k] === filterSpecs[k];
+        //     });
+        // });
+        // return this; // returns job objects
+
+        this.filteredJobs = [];
+
+        filterSpecs.forEach(spec => { // this method accepts an array of objects
+            this.jobs.forEach(job => {
+                if (Object.keys(spec).every(k => spec[k] === job[k])) {
+                    this.filteredJobs.push(job);
+                }
             });
         });
-        return this; // returns job objects
+        return this;
     }
 
     calculateIncome (timeRanges) {
@@ -35,7 +46,7 @@ class DataStorage extends Store {
         });
         return total;
     }
-    // THE ISSUE: Method is ONLY counting the first key/value pair in each object
+
     countJobs (timeRange) {
         let total = 0;
 

@@ -44,15 +44,6 @@ const jobsData = new DataStorage({
   const jobsTrash = new DataStorage({
     name: 'Jobs Trash'
   })
-
-  function getWeek (num) { // argument is a number between 1 and 52
-    let arr = [];
-    let date = new Date();
-
-
-    // returns arr of objects with day, month, and year
-    
-  }
   
   function currentWeek () {
     // Includes this week's Monday through current day
@@ -85,10 +76,21 @@ const jobsData = new DataStorage({
       dateYear: String(date.getFullYear())
     }
   }
+
+  function getDateOfISOWeek(w, y) {
+    let simple = new Date(y, 0, 1 + (w - 1) * 7);
+    let dow = simple.getDay();
+    let ISOweekStart = simple;
+    if (dow <= 4)
+        ISOweekStart.setDate(simple.getDate() - simple.getDay() + 1);
+    else
+        ISOweekStart.setDate(simple.getDate() + 8 - simple.getDay());
+    return ISOweekStart;
+}
   
   // Load the jobs of current month by default
   ipcMain.on('app-load', (event, bang) => {
-    jobsData.getJobs(currentMonth()); // getJobs populates filteredJobs array, only needs to happen on app load and during user filter
+    jobsData.getJobs([currentMonth()]); // getJobs populates filteredJobs array, only needs to happen on app load and during user filter
     let weeksIncome = jobsData.calculateIncome(currentWeek());
     let monthsIncome = jobsData.calculateIncome([currentMonth()]);
     let yearsIncome = jobsData.calculateIncome([currentYear()]);
@@ -118,8 +120,34 @@ const jobsData = new DataStorage({
   
   // IMPORTANT! App will NEVER return all the jobs, only the filtered jobs.
   ipcMain.on('filter-jobs', (event, filterSpecs) => {
-    jobsData.getJobs(filterSpecs);
-    console.log(filterSpecs);
+    if (filterSpecs.dateWeek) {
+      if (filterSpecs.dateDay) { // in case Day or Month are specified...
+        delete filterSpecs.dateDay;
+      }
+      if (filterSpecs.dateMonth) { // ...but their input should get blocked on the front end
+        delete filterSpecs.dateMonth;
+      }
+      if (!filterSpecs.dateYear) {
+        filterSpecs.dateYear = new Date().getFullYear().toString();
+      }
+      let daysInWeek = [];
+
+      let dateVal = getDateOfISOWeek(filterSpecs.dateWeek, filterSpecs.dateYear);
+      for (let i = dateVal.getDay(); i <= 7; i++) {
+        daysInWeek.push({
+          dateDay: `${String(dateVal.getDate())}`, 
+          dateMonth: `${String(dateVal.getMonth()+1)}`, 
+          dateYear: `${String(filterSpecs.dateYear)}`
+        });
+        dateVal.setDate(dateVal.getDate()+1);
+      }
+
+      jobsData.getJobs(daysInWeek);
+
+    } else {
+        jobsData.getJobs([filterSpecs]);
+    }
+    
     mainWindow.send('list-jobs', jobsData.filteredJobs);
   })
   
