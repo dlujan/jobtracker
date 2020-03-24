@@ -43,7 +43,7 @@ class App extends React.Component {
       },
       editJobCriteria: {
         id: undefined,
-        dateDay: undefined, // These have to be undefined for when they send to main.js
+        dateDay: undefined, // These have to be undefined for when they send to electron.js
         dateMonth: undefined, // in case not all are specified.
         dateYear: undefined,
         customer: undefined,
@@ -202,7 +202,7 @@ class App extends React.Component {
 
   handleJobEdit = (id, event) => {
     const name = event.target.name;
-    const value = event.target.value; // IF EVENT IS A NUMBER (AKA 'PAY'), CHANGE IT TO A STRING BEFORE SENDING TO main.js!!!
+    const value = event.target.value;
     this.setState(prevState => ({
       editJobCriteria: {
         ...prevState.editJobCriteria,
