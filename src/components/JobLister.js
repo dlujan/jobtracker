@@ -1,7 +1,7 @@
 import React from 'react';
-import JobItem from './JobItem';
-import AddJob from './AddJob';
-import ListFilter from './ListFilter';
+import JobItem from './jobs/JobItem';
+import AddJob from './jobs/AddJob';
+import JobFilter from './jobs/JobFilter';
 import './Components.css';
 
 class JobLister extends React.Component {
@@ -29,7 +29,7 @@ class JobLister extends React.Component {
                         resetNewJobInput={this.props.resetNewJobInput}
                         scrollToBottom={this.scrollToBottom}
                     />
-                    <ListFilter 
+                    <JobFilter 
                         jobs={this.props.jobs}
                         filterInput={this.props.filterInput}
                         handleListFilter={this.props.handleListFilter}
