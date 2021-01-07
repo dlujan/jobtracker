@@ -3,6 +3,7 @@ import {HashRouter, Route, Switch} from "react-router-dom";
 import MenuBar from './components/MenuBar';
 import Dashboard from './components/Dashboard';
 import JobLister from './components/JobLister';
+import ExpenseLister from './components/ExpenseLister';
 import TrashJobLister from './components/TrashJobLister';
 import './App.css';
 const {ipcRenderer} = window.require('electron');
@@ -335,6 +336,14 @@ class App extends React.Component {
               editJob={this.editJob}
               deleteJob={this.deleteJob} 
              />} />
+             <Route exact path="/expenselister" render={(props) => <ExpenseLister {...props}
+              // weeksIncome={this.state.weeksIncome}
+              // monthsIncome={this.state.monthsIncome}
+              // yearsIncome={this.state.yearsIncome}
+              // weeksCount={this.state.weeksCount}
+              // monthsCount={this.state.monthsCount}
+              // yearsCount={this.state.yearsCount}
+            />} />
              <Route exact path="/trashjoblister" render={(props) => <TrashJobLister {...props}
               trashJobs={this.state.trashJobs}
               recoverJob={this.recoverJob}
