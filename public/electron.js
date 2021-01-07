@@ -48,10 +48,10 @@ app.on('activate', function () {
   const expensesData = new DataStorage({
     name: 'Expenses Main'
   })
-
-  const expensesTrash = new DataStorage({
-    name: 'Expenses Trash'
-  })
+  // No use for this for now
+  // const expensesTrash = new DataStorage({
+  //   name: 'Expenses Trash'
+  // })
   
   function currentWeek () {
     // Includes this week's Monday through current day
@@ -231,9 +231,10 @@ app.on('activate', function () {
   })
 
   ipcMain.on('delete-expense', (event, id) => {
-    let deletedExpense = expensesData.queryExpenseByID(id); // find expense that's being deleted
-    expensesTrash.addExpense(deletedExpense); // put that expense in tha TRASHHH
-    expensesData.deleteExpense(id);
+    // No need to hang onto deleted expenses, for now at least
+    //let deletedExpense = expensesData.queryExpenseByID(id);
+    //expensesTrash.addExpense(deletedExpense);
+    expensesData.deleteExpense(id); // delete expense from storage straight up
   })
 
   ipcMain.on('recover-job', (event, id) => {
@@ -242,16 +243,18 @@ app.on('activate', function () {
     jobsTrash.deleteJob(id);
   })
 
-  ipcMain.on('recover-expense', (event, id) => {
-    let recoveredExpense = expensesTrash.queryExpenseByID(id);
-    expensesData.addExpense(recoveredExpense);
-    expensesTrash.deleteExpense(id);
-  })
+  // Currently no use for this endpoint
+  // ipcMain.on('recover-expense', (event, id) => {
+  //   let recoveredExpense = expensesTrash.queryExpenseByID(id);
+  //   expensesData.addExpense(recoveredExpense);
+  //   expensesTrash.deleteExpense(id);
+  // })
 
  ipcMain.on('destroy-job', (event, id) => {
    jobsTrash.deleteJob(id);
  })
 
- ipcMain.on('destroy-expense', (event, id) => {
-   expensesTrash.deleteExpense(id);
- })
+// Currently no use for this endpoint
+//  ipcMain.on('destroy-expense', (event, id) => {
+//    expensesTrash.deleteExpense(id);
+//  })
