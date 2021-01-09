@@ -31,10 +31,10 @@ class JobLister extends React.Component {
                     />
                     <JobFilter 
                         jobs={this.props.jobs}
-                        filterInput={this.props.filterInput}
-                        handleListFilter={this.props.handleListFilter}
-                        submitListFilter={this.props.submitListFilter}
-                        resetListFilter={this.props.resetListFilter}
+                        jobFilterInput={this.props.jobFilterInput}
+                        handleJobListFilter={this.props.handleJobListFilter}
+                        submitJobListFilter={this.props.submitJobListFilter}
+                        resetJobListFilter={this.props.resetJobListFilter}
                     />
                 </div>
                 

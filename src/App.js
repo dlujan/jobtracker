@@ -14,7 +14,7 @@ class App extends React.Component {
     this.state = {
       jobs: [],
       trashJobs: [],
-      listFilter: {
+      jobListFilter: {
         dateDay: undefined,
         dateMonth: undefined,
         dateYear: undefined,
@@ -23,7 +23,7 @@ class App extends React.Component {
         source: undefined, // in case not all are specified.
         pay: undefined
       },
-      filterInput: {
+      jobFilterInput: {
         dateDay: '',
         dateMonth: '',
         dateYear: '',
@@ -93,42 +93,42 @@ class App extends React.Component {
     })
   }
 
-  handleListFilter = event => {
+  handleJobListFilter = event => {
     const name = event.target.name;
     const value = event.target.value;
     this.setState(prevState => ({
-      listFilter: {
-        ...prevState.listFilter,
+      jobListFilter: {
+        ...prevState.jobListFilter,
         [name]: value
       },
-      filterInput: {
-        ...prevState.filterInput,
+      jobFilterInput: {
+        ...prevState.jobFilterInput,
         [name]: value
       }
     }));
   }
 
-  submitListFilter = event => {
+  submitJobListFilter = event => {
     let allUndefined = true;
 
-    for (var property in this.state.listFilter) {
-      if (this.state.listFilter[property] !== undefined) {
+    for (var property in this.state.jobListFilter) {
+      if (this.state.jobListFilter[property] !== undefined) {
         allUndefined = false;
         break;
       }
     }
 
     if (allUndefined === false) {
-      ipcRenderer.send('filter-jobs', this.state.listFilter);
-      this.resetListFilter();
+      ipcRenderer.send('filter-jobs', this.state.jobListFilter);
+      this.resetJobListFilter();
       allUndefined = true;
     }
     event.preventDefault();
   }
 
-  resetListFilter = () => {
+  resetJobListFilter = () => {
     this.setState({
-      listFilter: {
+      jobListFilter: {
         dateDay: undefined,
         dateMonth: undefined,
         dateYear: undefined,
@@ -137,7 +137,7 @@ class App extends React.Component {
         source: undefined,
         pay: undefined
       },
-      filterInput: {
+      jobFilterInput: {
         dateDay: '',
         dateMonth: '',
         dateYear: '',
@@ -325,10 +325,10 @@ class App extends React.Component {
               addJob={this.addJob}
               resetNewJobInput={this.resetNewJobInput}
 
-              filterInput={this.state.filterInput}
-              handleListFilter={this.handleListFilter}
-              submitListFilter={this.submitListFilter}
-              resetListFilter={this.resetListFilter}
+              jobFilterInput={this.state.jobFilterInput}
+              handleJobListFilter={this.handleJobListFilter}
+              submitJobListFilter={this.submitJobListFilter}
+              resetJobListFilter={this.resetJobListFilter}
               
               jobs={this.state.jobs}
               handleJobEdit={this.handleJobEdit}
@@ -358,4 +358,3 @@ class App extends React.Component {
 }
 
 export default App;
-
