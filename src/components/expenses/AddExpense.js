@@ -9,7 +9,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 class AddExpense extends React.Component {
 
     render() {
-        //const {addJob, resetNewJobInput, newJob, handleNewJob, handleNewJobDate} = this.props;
+        const {addExpense, resetNewExpenseInput, newExpense, handleNewExpense, handleNewExpenseDate} = this.props;
         return (
             <div className="add-job-container">
                 <div className="add-job-cell" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f7f7f7'}}>
@@ -17,17 +17,16 @@ class AddExpense extends React.Component {
                 </div>
                 <div className="add-job-cell add-job-form">
                     <h3>Add Expense</h3>
-                    {/* <form onSubmit={addJob}>
-                        <DayPickerInput onDayChange={handleNewJobDate} inputProps={{required: true}}/>
-                        <input name="customer" type="text" value={newJob.customer} onChange={handleNewJob} placeholder="Customer Name" required/>
-                        <input name="source" type="text" value={newJob.source} onChange={handleNewJob} placeholder="Job source" required/>
-                        <input name="pay" type="number" min="0.00" max="10000.00" step="0.01" value={newJob.pay} onChange={handleNewJob} placeholder="Job Pay" required/>
-                        <input name="description" type="text" value={newJob.description} onChange={handleNewJob} placeholder="Job Description"/>
+                    <form onSubmit={addExpense}>
+                        <DayPickerInput onDayChange={handleNewExpenseDate} inputProps={{required: true}}/>
+                        <input name="name" type="text" value={newExpense.name} onChange={handleNewExpense} placeholder="Expense Name" required/>
+                        <input name="cost" type="number" min="0.00" max="10000.00" step="0.01" value={newExpense.cost} onChange={handleNewExpense} placeholder="Cost" required/>
+                        <input name="description" type="text" value={newExpense.description} onChange={handleNewExpense} placeholder="Expense Description"/>
                         <div>
                             <button className="submit-btn" type="submit" value="Submit">Submit</button>
-                            <button onClick={resetNewJobInput}>Reset</button>
+                            <button onClick={resetNewExpenseInput}>Reset</button>
                         </div>   
-                    </form> */}
+                    </form>
                 </div>
             </div>
         );
@@ -36,7 +35,7 @@ class AddExpense extends React.Component {
 }
 
 AddExpense.propTypes = {
-    newJob: PropTypes.object.isRequired
+    newExpense: PropTypes.object.isRequired
 }
 
 export default AddExpense;

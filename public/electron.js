@@ -113,10 +113,8 @@ app.on('activate', function () {
     expensesData.getExpenses([currentYear()]); // getExpenses populates filteredExpenses array, only needs to happen on app load and during user filter
     let yearsExpenses = expensesData.calculateExpenses([currentYear()]);
     //mainWindow.send('expenses-stats', yearsExpenses);
-    //mainWindow.send('list-expenses', expensesData.filteredExpenses);
-    //mainWindow.send('list-trash-expenses', expensesTrash.expenses);
+    mainWindow.send('list-expenses', expensesData.filteredExpenses);
     console.log(yearsExpenses);
-    console.log(expensesData.filteredExpenses);
   })
   
   ipcMain.on('app-reload', (event, bang) => {
@@ -133,10 +131,8 @@ app.on('activate', function () {
 
     let yearsExpenses = expensesData.calculateExpenses([currentYear()]);
     //mainWindow.send('expenses-stats', yearsExpenses);
-    //mainWindow.send('list-expenses', expensesData.filteredExpenses);
-    //mainWindow.send('list-trash-expenses', expensesTrash.expenses);
+    mainWindow.send('list-expenses', expensesData.filteredExpenses);
     console.log(yearsExpenses);
-    console.log(expensesData.filteredExpenses);
   })
   
   // IMPORTANT! App will NEVER return all the jobs, only the filtered jobs.

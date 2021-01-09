@@ -7,10 +7,10 @@ import './Components.css';
 class ExpenseLister extends React.Component {
     componentDidUpdate(prevProps) {
         // Scroll to bottom of page on new job creation
-        // if (this.props.jobs.length !== prevProps.jobs.length) {
-        //     const bottom = document.getElementById('bottom');
-        //     bottom.scrollIntoView({behavior: 'smooth'});
-        // }
+        if (this.props.expenses.length !== prevProps.expenses.length) {
+            const bottom = document.getElementById('bottom');
+            bottom.scrollIntoView({behavior: 'smooth'});
+        }
       }
 
     render() {
@@ -22,19 +22,19 @@ class ExpenseLister extends React.Component {
                 </div>
                 <div className="add-filter-container">
                     <AddExpense 
-                        // newJob={this.props.newJob}  
-                        // handleNewJob={this.props.handleNewJob} 
-                        // handleNewJobDate={this.props.handleNewJobDate}
-                        // addJob={this.props.addJob}
-                        // resetNewJobInput={this.props.resetNewJobInput}
-                        // scrollToBottom={this.scrollToBottom}
+                        newExpense={this.props.newExpense}  
+                        handleNewExpense={this.props.handleNewExpense} 
+                        handleNewExpenseDate={this.props.handleNewExpenseDate}
+                        addExpense={this.props.addExpense}
+                        resetNewExpenseInput={this.props.resetNewExpenseInput}
+                        scrollToBottom={this.scrollToBottom}
                     />
                     <ExpenseFilter 
-                        // jobs={this.props.jobs}
-                        // filterInput={this.props.filterInput}
-                        // handleListFilter={this.props.handleListFilter}
-                        // submitListFilter={this.props.submitListFilter}
-                        // resetListFilter={this.props.resetListFilter}
+                        expenses={this.props.expenses}
+                        expenseFilterInput={this.props.expenseFilterInput}
+                        handleExpenseListFilter={this.props.handleExpenseListFilter}
+                        submitExpenseListFilter={this.props.submitExpenseListFilter}
+                        resetExpenseListFilter={this.props.resetExpenseListFilter}
                     />
                 </div>
                 
@@ -44,14 +44,14 @@ class ExpenseLister extends React.Component {
                     <div>Cost</div>
                     <div>Actions</div>
                 </div>
-                {/* {this.props.jobs.map(job => {
-                return <ExpenseItem key={job.id} job={job}
-                            handleJobEdit={this.props.handleJobEdit}
-                            handleJobEditDate={this.props.handleJobEditDate}
-                            editJob={this.props.editJob}
-                            deleteJob={this.props.deleteJob}
+                {this.props.expenses.map(expense => {
+                return <ExpenseItem key={expense.id} expense={expense}
+                            handleExpenseEdit={this.props.handleExpenseEdit}
+                            handleExpenseEditDate={this.props.handleExpenseEditDate}
+                            editExpense={this.props.editExpense}
+                            deleteExpense={this.props.deleteExpense}
                         />
-                })} */}
+                })}
                 <div id="bottom"></div> 
             </div>
         );
