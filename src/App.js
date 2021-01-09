@@ -92,7 +92,10 @@ class App extends React.Component {
       yearsIncome: 0,
       weeksCount: 0,
       monthsCount: 0,
-      yearsCount: 0
+      yearsCount: 0,
+      weeksExpenses: 0,
+      monthsExpenses: 0,
+      yearsExpenses: 0
     }
   }
   
@@ -122,6 +125,14 @@ class App extends React.Component {
         weeksIncome: weeksIncome,
         monthsIncome: monthsIncome,
         yearsIncome: yearsIncome
+      })
+    })
+
+    ipcRenderer.on('expenses-stats', (event, weeksExpenses, monthsExpenses, yearsExpenses) => {
+      this.setState({
+        weeksExpenses: weeksExpenses,
+        monthsExpenses: monthsExpenses,
+        yearsExpenses: yearsExpenses
       })
     })
 
@@ -538,6 +549,9 @@ class App extends React.Component {
               weeksCount={this.state.weeksCount}
               monthsCount={this.state.monthsCount}
               yearsCount={this.state.yearsCount}
+              weeksExpenses={this.state.weeksExpenses}
+              monthsExpenses={this.state.monthsExpenses}
+              yearsExpenses={this.state.yearsExpenses}
             />} />
             <Route exact path="/joblister" render={(props) => <JobLister {...props}
               newJob={this.state.newJob}
