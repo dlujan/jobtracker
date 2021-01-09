@@ -18,7 +18,7 @@ class ExpenseFilter extends React.Component {
             weeks.push(i.toString());
         }
         return (
-            <div className="list-filter-container">
+            <div className="list-filter-container expense">
                 <div className="list-filter-cell" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f7f7f7'}}>
                     <FontAwesomeIcon icon={faSearch} style={{fontSize: '5rem'}}/>
                 </div>

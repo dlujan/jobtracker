@@ -83,7 +83,7 @@ class ExpenseItem extends React.Component {
         const {id, dateMonth, dateDay, dateYear, name, cost, description} = this.props.expense;
         const {handleExpenseEditDate, deleteExpense} = this.props;
         return (
-            <div className="job-item">
+            <div className="job-item expense">
                 <div>{dateMonth}/{dateDay}/{dateYear}</div> 
                 <div>{name}</div>
                 <div>${cost}</div>

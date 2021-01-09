@@ -11,7 +11,7 @@ class AddExpense extends React.Component {
     render() {
         const {addExpense, resetNewExpenseInput, newExpense, handleNewExpense, handleNewExpenseDate} = this.props;
         return (
-            <div className="add-job-container">
+            <div className="add-job-container expense">
                 <div className="add-job-cell" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f7f7f7'}}>
                     <FontAwesomeIcon icon={faPlus} style={{fontSize: '5rem'}}/>
                 </div>
