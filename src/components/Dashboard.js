@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDollarSign, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faDollarSign, faMinus, faUsers } from '@fortawesome/free-solid-svg-icons';
 import './Components.css';
 
 class Dashboard extends React.Component {
@@ -80,6 +80,41 @@ class Dashboard extends React.Component {
                                     <strong>{this.props.yearsCount}</strong>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div className="card-container">
+                    <div className="card">
+                            <div className="card-icon-expenses">
+                                <FontAwesomeIcon icon={faMinus}/>
+                            </div>
+                            <div className="card-content">
+                                <span>Expenses this week</span>
+                                <div>
+                                    <strong>${this.props.weeksExpenses.toFixed(2)}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="card">
+                            <div className="card-icon-expenses">
+                                <FontAwesomeIcon icon={faMinus}/>
+                            </div>
+                            <div className="card-content">
+                                <span>Expenses this month</span>
+                                <div>
+                                    <strong>${this.props.monthsExpenses.toFixed(2)}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="card">
+                            <div className="card-icon-expenses">
+                                <FontAwesomeIcon icon={faMinus}/>
+                            </div>
+                            <div className="card-content">
+                                <span>Expenses this year</span>
+                                <div>
+                                    <strong>${this.props.yearsExpenses.toFixed(2)}</strong>
+                                </div>
+                            </div>  
                         </div>
                     </div>
                 </div>

@@ -10,6 +10,7 @@ class MenuBar extends React.Component {
         this.state = {
             dashboardSelected: true,
             joblisterSelected: false,
+            expenselisterSelected: false,
             trashSelected: false
         }
     }
@@ -17,6 +18,7 @@ class MenuBar extends React.Component {
         this.setState({
             dashboardSelected: true,
             joblisterSelected: false,
+            expenselisterSelected: false,
             trashSelected: false
         })
     }
@@ -25,6 +27,16 @@ class MenuBar extends React.Component {
         this.setState({
             dashboardSelected: false,
             joblisterSelected: true,
+            expenselisterSelected: false,
+            trashSelected: false
+        })
+    }
+
+    expenselisterSelected = () => {
+        this.setState({
+            dashboardSelected: false,
+            joblisterSelected: false,
+            expenselisterSelected: true,
             trashSelected: false
         })
     }
@@ -33,6 +45,7 @@ class MenuBar extends React.Component {
         this.setState({
             dashboardSelected: false,
             joblisterSelected: false,
+            expenselisterSelected: false,
             trashSelected: true
         })
     }
@@ -53,6 +66,20 @@ class MenuBar extends React.Component {
 
     joblisterNavStyle = () => {
         if (this.state.joblisterSelected === true) {
+            return {
+                marginRight: '12px',
+                color: '#3676ff'
+            }
+        } else {
+            return {
+                marginRight: '12px',
+                color: 'rgba(255, 255, 255, 0.4)'
+            }
+        }
+    }
+
+    expenselisterNavStyle = () => {
+        if (this.state.expenselisterSelected === true) {
             return {
                 marginRight: '12px',
                 color: '#3676ff'
@@ -89,6 +116,11 @@ class MenuBar extends React.Component {
                 <Link to="/joblister" className="link-comp">
                     <div onClick={this.joblisterSelected}>
                         <FontAwesomeIcon icon={faList} style={this.joblisterNavStyle()}/><span>Job Lister</span>
+                    </div>
+                </Link>
+                <Link to="/expenselister" className="link-comp">
+                    <div onClick={this.expenselisterSelected}>
+                        <FontAwesomeIcon icon={faList} style={this.expenselisterNavStyle()}/><span>Expenses</span>
                     </div>
                 </Link>
                 <Link to="/trashjoblister" className="link-comp">

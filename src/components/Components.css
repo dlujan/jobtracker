@@ -43,7 +43,7 @@ h2 {
 .card-container {
     display: flex;
     justify-content: space-evenly;
-    padding: 75px 0;
+    padding: 50px 0;
     width: 100%;
 }
 
@@ -67,6 +67,13 @@ h2 {
     background: rgb(91, 185, 83);
 }
 
+.card-icon-expenses {
+    padding: 6px 17px;
+    font-size: 2.5rem;
+    color: white;
+    background: rgb(184, 39, 39);
+}
+
 .card-icon-count {
     padding: 8px 10px;
     font-size: 2.5rem;
@@ -83,12 +90,15 @@ h2 {
     display: flex;
 }
 
-/* AddJob Styles */
+/* AddJob/AddExpense Styles */
 .add-job-container {
     display: flex;
     width: 50%;
     padding: 4px 0;
-    /* background: rgb(91, 185, 83); */
+    background: rgb(91, 185, 83);
+}
+
+.add-job-container.expense {
     background: rgb(184, 39, 39);
 }
 
@@ -129,12 +139,15 @@ h2 {
     margin-top: 3px;
 }
 
-/* ListFilter Styles */
+/* JobFilter/ExpenseFilter Styles */
 .list-filter-container {
     display: flex;
     width: 50%;
     padding: 4px 0;
-    /* background: rgb(83, 160, 223); */
+    background: rgb(91, 185, 83);
+}
+
+.list-filter-container.expense {
     background: rgb(184, 39, 39);
 }
 
@@ -187,11 +200,19 @@ h2 {
     font-weight: 700;
 }
 
+.label-bar.expenses {
+    grid-template-columns: repeat(4, 1fr);
+}
+
 .job-item {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     padding: 1rem;
     background: #f4f4f4;
+}
+
+.job-item.expense {
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .job-item:nth-child(2n+1) {

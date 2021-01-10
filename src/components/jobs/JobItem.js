@@ -5,7 +5,7 @@ import 'react-day-picker/lib/style.css';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileAlt, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import './Components.css';
+import '../Components.css';
 
 class JobItem extends React.Component {
     constructor(props) {
