@@ -1,136 +1,151 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartLine, faList, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import './Components.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChartLine,
+  faList,
+  faTrashAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import "./Components.css";
 
 class MenuBar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            dashboardSelected: true,
-            joblisterSelected: false,
-            expenselisterSelected: false,
-            trashSelected: false
-        }
-    }
-    dashboardSelected = () => { // I know the following code is super wet but it works
-        this.setState({
-            dashboardSelected: true,
-            joblisterSelected: false,
-            expenselisterSelected: false,
-            trashSelected: false
-        })
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      dashboardSelected: true,
+      joblisterSelected: false,
+      expenselisterSelected: false,
+      trashSelected: false,
+    };
+  }
+  dashboardSelected = () => {
+    // I know the following code is super wet but it works
+    this.setState({
+      dashboardSelected: true,
+      joblisterSelected: false,
+      expenselisterSelected: false,
+      trashSelected: false,
+    });
+  };
 
-    joblisterSelected = () => {
-        this.setState({
-            dashboardSelected: false,
-            joblisterSelected: true,
-            expenselisterSelected: false,
-            trashSelected: false
-        })
-    }
+  joblisterSelected = () => {
+    this.setState({
+      dashboardSelected: false,
+      joblisterSelected: true,
+      expenselisterSelected: false,
+      trashSelected: false,
+    });
+  };
 
-    expenselisterSelected = () => {
-        this.setState({
-            dashboardSelected: false,
-            joblisterSelected: false,
-            expenselisterSelected: true,
-            trashSelected: false
-        })
-    }
+  expenselisterSelected = () => {
+    this.setState({
+      dashboardSelected: false,
+      joblisterSelected: false,
+      expenselisterSelected: true,
+      trashSelected: false,
+    });
+  };
 
-    trashSelected = () => {
-        this.setState({
-            dashboardSelected: false,
-            joblisterSelected: false,
-            expenselisterSelected: false,
-            trashSelected: true
-        })
-    }
+  trashSelected = () => {
+    this.setState({
+      dashboardSelected: false,
+      joblisterSelected: false,
+      expenselisterSelected: false,
+      trashSelected: true,
+    });
+  };
 
-    dashboardNavStyle = () => {
-        if (this.state.dashboardSelected === true) {
-            return {
-                marginRight: '12px',
-                color: '#3676ff'
-            }
-        } else {
-            return {
-                marginRight: '12px',
-                color: 'rgba(255, 255, 255, 0.4)'
-            }
-        }
+  dashboardNavStyle = () => {
+    if (this.state.dashboardSelected === true) {
+      return {
+        marginRight: "12px",
+        color: "#3676ff",
+      };
+    } else {
+      return {
+        marginRight: "12px",
+        color: "rgba(255, 255, 255, 0.4)",
+      };
     }
+  };
 
-    joblisterNavStyle = () => {
-        if (this.state.joblisterSelected === true) {
-            return {
-                marginRight: '12px',
-                color: '#3676ff'
-            }
-        } else {
-            return {
-                marginRight: '12px',
-                color: 'rgba(255, 255, 255, 0.4)'
-            }
-        }
+  joblisterNavStyle = () => {
+    if (this.state.joblisterSelected === true) {
+      return {
+        marginRight: "12px",
+        color: "#3676ff",
+      };
+    } else {
+      return {
+        marginRight: "12px",
+        color: "rgba(255, 255, 255, 0.4)",
+      };
     }
+  };
 
-    expenselisterNavStyle = () => {
-        if (this.state.expenselisterSelected === true) {
-            return {
-                marginRight: '12px',
-                color: '#3676ff'
-            }
-        } else {
-            return {
-                marginRight: '12px',
-                color: 'rgba(255, 255, 255, 0.4)'
-            }
-        }
+  expenselisterNavStyle = () => {
+    if (this.state.expenselisterSelected === true) {
+      return {
+        marginRight: "12px",
+        color: "#3676ff",
+      };
+    } else {
+      return {
+        marginRight: "12px",
+        color: "rgba(255, 255, 255, 0.4)",
+      };
     }
+  };
 
-    trashNavStyle = () => {
-        if (this.state.trashSelected === true) {
-            return {
-                marginRight: '12px',
-                color: '#3676ff'
-            }
-        } else {
-            return {
-                marginRight: '12px',
-                color: 'rgba(255, 255, 255, 0.4)'
-            }
-        }
+  trashNavStyle = () => {
+    if (this.state.trashSelected === true) {
+      return {
+        marginRight: "12px",
+        color: "#3676ff",
+      };
+    } else {
+      return {
+        marginRight: "12px",
+        color: "rgba(255, 255, 255, 0.4)",
+      };
     }
-    render() {
-        return (
-            <div className="menu-bar">
-                <Link to="/" className="link-comp">
-                    <div onClick={this.dashboardSelected}>
-                        <FontAwesomeIcon icon={faChartLine} style={this.dashboardNavStyle()}/><span>Dashboard</span>
-                    </div>
-                </Link>
-                <Link to="/joblister" className="link-comp">
-                    <div onClick={this.joblisterSelected}>
-                        <FontAwesomeIcon icon={faList} style={this.joblisterNavStyle()}/><span>Job Lister</span>
-                    </div>
-                </Link>
-                <Link to="/expenselister" className="link-comp">
-                    <div onClick={this.expenselisterSelected}>
-                        <FontAwesomeIcon icon={faList} style={this.expenselisterNavStyle()}/><span>Expenses</span>
-                    </div>
-                </Link>
-                <Link to="/trashjoblister" className="link-comp">
-                    <div onClick={this.trashSelected}>
-                        <FontAwesomeIcon icon={faTrashAlt} style={this.trashNavStyle()}/><span>Trash</span>
-                    </div>
-                </Link>
-            </div>
-        );
-    }
+  };
+  render() {
+    return (
+      <div className="menu-bar">
+        <Link to="/" className="link-comp">
+          <div onClick={this.dashboardSelected}>
+            <FontAwesomeIcon
+              icon={faChartLine}
+              style={this.dashboardNavStyle()}
+            />
+            <span>Dashboard</span>
+          </div>
+        </Link>
+        <Link to="/joblister" className="link-comp">
+          <div onClick={this.joblisterSelected}>
+            <FontAwesomeIcon icon={faList} style={this.joblisterNavStyle()} />
+            <span>Jobs</span>
+          </div>
+        </Link>
+        <Link to="/expenselister" className="link-comp">
+          <div onClick={this.expenselisterSelected}>
+            <FontAwesomeIcon
+              icon={faList}
+              style={this.expenselisterNavStyle()}
+            />
+            <span>Expenses</span>
+          </div>
+        </Link>
+        <Link to="/trashjoblister" className="link-comp">
+          <div onClick={this.trashSelected}>
+            <FontAwesomeIcon icon={faTrashAlt} style={this.trashNavStyle()} />
+            <span>Trash</span>
+          </div>
+        </Link>
+      </div>
+    );
+  }
 }
 
 export default MenuBar;
